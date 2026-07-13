@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Permission Drift CI — Chrome Extension Permission Review</title>
+    <meta
+      name="description"
+      content="Permission Drift CI reviews risky Chrome extension permission changes before merge."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html">Permission Drift CI</a>
+        <div class="nav-links">
+          <a href="#checks">Checks</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#waitlist">Waitlist</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Pre-merge security review for Chrome extensions</p>
+          <h1>Catch dangerous permission changes before they reach main.</h1>
+          <p class="hero-text">
+            Permission Drift CI reviews Chrome extension pull requests for risky permission,
+            manifest, script, CSP, and privacy changes so maintainers can spot drift before merge.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="#waitlist">Join the waitlist</a>
+            <a class="button button-secondary" href="#checks">See checks</a>
+          </div>
+          <p class="note">
+            Built for validation. No payments, analytics, marketplace listing, or publishing are active.
+          </p>
+        </div>
+        <aside class="hero-card" aria-label="Example CI review summary">
+          <div class="card-header">Example review</div>
+          <ul>
+            <li><strong>Risk:</strong> new <code>&lt;all_urls&gt;</code> access requested</li>
+            <li><strong>Risk:</strong> remote script source detected</li>
+            <li><strong>Action:</strong> review before merge</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section id="checks" class="section">
+        <p class="eyebrow">What it checks</p>
+        <h2>Simple signals for permission drift</h2>
+        <div class="checks-grid">
+          <article class="check-card">
+            <h3><code>&lt;all_urls&gt;</code></h3>
+            <p>Flags broad host access that can expand what an extension can read or change.</p>
+          </article>
+          <article class="check-card">
+            <h3>Manifest V2</h3>
+            <p>Highlights Manifest V2 usage so teams can review legacy extension configuration.</p>
+          </article>
+          <article class="check-card">
+            <h3><code>eval</code> / <code>new Function</code></h3>
+            <p>Detects dynamic code execution patterns that deserve careful review.</p>
+          </article>
+          <article class="check-card">
+            <h3>Remote scripts</h3>
+            <p>Calls out script loading from remote URLs that can shift behavior outside the repo.</p>
+          </article>
+          <article class="check-card">
+            <h3>Problematic CSP</h3>
+            <p>Reviews content security policy changes that may weaken extension protections.</p>
+          </article>
+          <article class="check-card">
+            <h3>Privacy drift</h3>
+            <p>Surfaces privacy-impacting changes in permissions, data access, and disclosures.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pricing" class="section pricing-section">
+        <p class="eyebrow">Test pricing</p>
+        <h2>Validate demand before launch</h2>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Private repository</h3>
+            <p class="price">US$5<span>/month</span></p>
+            <p>Per private repository for ongoing CI checks during pull request review.</p>
+          </article>
+          <article class="price-card featured">
+            <h3>One-time audit</h3>
+            <p class="price">US$19</p>
+            <p>A single review of one Chrome extension repository for permission drift signals.</p>
+          </article>
+        </div>
+        <p class="note">
+          These are test prices for validation only. This page does not process payments.
+        </p>
+      </section>
+
+      <section id="waitlist" class="section waitlist-section">
+        <div>
+          <p class="eyebrow">Waitlist</p>
+          <h2>Tell us about your extension project</h2>
+          <p>
+            Join the waitlist to help validate Permission Drift CI. Your information will be used only
+            to respond about the waitlist and related product validation.
+          </p>
+        </div>
+        <form
+          class="waitlist-form"
+          action="https://formsubmit.co/permissiondriftci@gmail.com"
+          method="POST"
+        >
+          <input type="hidden" name="_subject" value="Novo lead — Permission Drift CI" />
+          <input type="hidden" name="_next" value="thanks.html" />
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" />
+
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+
+          <label for="stage">Project stage</label>
+          <select id="stage" name="project_stage" required>
+            <option value="">Select a stage</option>
+            <option>Idea or prototype</option>
+            <option>Private beta</option>
+            <option>Published extension</option>
+            <option>Agency or security reviewer</option>
+          </select>
+
+          <label for="message">Optional message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="What permission changes are you most worried about?"
+          ></textarea>
+
+          <button class="button" type="submit">Join waitlist</button>
+          <p class="form-note">FormSubmit's standard captcha may be shown after submission.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Permission Drift CI. Validation page only.</p>
+      <a href="thanks.html">Thanks page</a>
+    </footer>
+  </body>
+</html>
